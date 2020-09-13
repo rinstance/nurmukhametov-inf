@@ -1,0 +1,6 @@
+select DISTINCT a.model, b.model, a.speed, a.ram
+from pc as a, pc as b
+where a.speed = b.speed 
+and a.ram = b.ram 
+and a.model != b.model 
+and a.model > b.model

@@ -1,0 +1,1 @@
+Select maker from  product where product.type = 'printer' group by maker

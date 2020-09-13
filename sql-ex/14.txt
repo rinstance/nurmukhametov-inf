@@ -1,0 +1,4 @@
+select ships.class, ships.name, country
+from ships, classes 
+where Classes.class = ships.class
+and Classes.numGuns >= 10

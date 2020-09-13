@@ -1,0 +1,4 @@
+select maker, max(price)
+from pc, product 
+where pc.model= product.model  
+group by maker

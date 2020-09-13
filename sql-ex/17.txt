@@ -1,0 +1,4 @@
+select distinct p.type, l.model, l.speed
+from laptop l, pc, product p
+where l.speed < (select min(speed) from pc)
+and l.model = p.model

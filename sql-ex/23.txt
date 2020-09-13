@@ -1,0 +1,8 @@
+select distinct maker 
+from pc, product 
+where pc.model = product.model  
+and pc.speed >= 750 
+and maker in (select  maker  
+from laptop, product 
+where laptop.model = product.model 
+and laptop.speed >= 750)

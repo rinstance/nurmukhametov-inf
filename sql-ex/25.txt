@@ -1,0 +1,11 @@
+select distinct product.maker 
+FROM product 
+WHERE product.type = 'printer'  
+interect
+select distinct product.maker 
+FROM product, pc 
+WHERE pc.model = product.model  
+AND product.type='pc' 
+AND pc.ram = (select MIN(ram) FROM pc)  
+AND pc.speed = (select MAX(speed) FROM (select speed FROM pc 
+WHERE pc.ram = (select MIN(ram) FROM pc)) as t)

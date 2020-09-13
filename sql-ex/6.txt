@@ -1,0 +1,4 @@
+Select distinct maker, speed
+from product, laptop
+where product.model = laptop.model
+and laptop.hd >= 10

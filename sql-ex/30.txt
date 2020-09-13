@@ -1,0 +1,7 @@
+select point, date, SUM(sum_out), SUM(sum_inc) 
+from(select point, date, SUM(inc) as sum_inc, null as sum_out 
+from income group by point, date  
+union 
+select point, date, null as sum_inc, SUM(out) as sum_out 
+from outcome group by point, date) as a 
+group by point, date order by point
