@@ -1,4 +1,4 @@
-package servlets;
+package homeworks.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
-import java.util.Scanner;
 
 @WebServlet("/register")
 public class HtmlServlet extends HttpServlet {
@@ -18,16 +17,16 @@ public class HtmlServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("get");
         req.getRequestDispatcher("WEB-INF/html/register.html").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("post");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             add(req.getParameter("login_input"), req.getParameter("password_input"));
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void add(String login, String pass) throws Exception {

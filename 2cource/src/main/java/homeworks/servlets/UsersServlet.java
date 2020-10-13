@@ -1,6 +1,6 @@
-package servlets;
+package homeworks.servlets;
 
-import model.User;
+import homeworks.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,16 +39,15 @@ public class UsersServlet extends HttpServlet {
             while (rs.next()) {
                 String login = rs.getString("login");
                 String password = rs.getString("password");
-                User user = User.builder()
-                        .login(login)
-                        .password(password)
-                        .build();
+                User user = new User(login, password);
                 users.add(user);
             }
             rs.close();
             stmt.close();
             c.close();
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("Operation done successfully");
     }
 

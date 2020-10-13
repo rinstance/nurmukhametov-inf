@@ -104,7 +104,7 @@ false America/Argentina/San_Luis
 false America/Argentina/Tucuman
 false America/Argentina/Ushuaia
 false America/Aruba
-false America/Asuncion
+true America/Asuncion
 false America/Atikokan
 true America/Atka
 false America/Bahia
@@ -256,10 +256,10 @@ false Antarctica/Davis
 false Antarctica/DumontDUrville
 false Antarctica/Macquarie
 false Antarctica/Mawson
-false Antarctica/McMurdo
+true Antarctica/McMurdo
 false Antarctica/Palmer
 false Antarctica/Rothera
-false Antarctica/South_Pole
+true Antarctica/South_Pole
 false Antarctica/Syowa
 true Antarctica/Troll
 false Antarctica/Vostok
@@ -375,29 +375,29 @@ false Atlantic/Reykjavik
 false Atlantic/South_Georgia
 false Atlantic/St_Helena
 false Atlantic/Stanley
-false Australia/ACT
-false Australia/Adelaide
+true Australia/ACT
+true Australia/Adelaide
 false Australia/Brisbane
-false Australia/Broken_Hill
-false Australia/Canberra
-false Australia/Currie
+true Australia/Broken_Hill
+true Australia/Canberra
+true Australia/Currie
 false Australia/Darwin
 false Australia/Eucla
-false Australia/Hobart
-false Australia/LHI
+true Australia/Hobart
+true Australia/LHI
 false Australia/Lindeman
-false Australia/Lord_Howe
-false Australia/Melbourne
-false Australia/NSW
+true Australia/Lord_Howe
+true Australia/Melbourne
+true Australia/NSW
 false Australia/North
 false Australia/Perth
 false Australia/Queensland
-false Australia/South
-false Australia/Sydney
-false Australia/Tasmania
-false Australia/Victoria
+true Australia/South
+true Australia/Sydney
+true Australia/Tasmania
+true Australia/Victoria
 false Australia/West
-false Australia/Yancowinna
+true Australia/Yancowinna
 true BDST
 false BDT
 false BNT
@@ -611,7 +611,7 @@ false KRAST
 false KRAT
 false KST
 false Kwajalein
-false LHDT
+true LHDT
 false LHST
 false LIGT
 false LINT
@@ -648,8 +648,8 @@ false NOVT
 false NPT
 false NST
 false NUT
-false NZ
-false NZ-CHAT
+true NZ
+true NZ-CHAT
 true NZDT
 false NZST
 false NZT
@@ -673,11 +673,11 @@ false PST
 true PST8PDT
 false PWT
 true PYST
-false PYT
-false Pacific/Apia
-false Pacific/Auckland
+true PYT
+true Pacific/Apia
+true Pacific/Auckland
 false Pacific/Bougainville
-false Pacific/Chatham
+true Pacific/Chatham
 false Pacific/Chuuk
 true Pacific/Easter
 false Pacific/Efate
@@ -699,7 +699,7 @@ false Pacific/Marquesas
 false Pacific/Midway
 false Pacific/Nauru
 false Pacific/Niue
-false Pacific/Norfolk
+true Pacific/Norfolk
 false Pacific/Noumea
 false Pacific/Pago_Pago
 false Pacific/Palau
@@ -784,13 +784,13 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1600500892</StartupTime>
+      <StartupTime>1602400942</StartupTime>
     </root>
     <database id="2" parent="1" name="postgres">
       <ObjectId>13012</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>671</IntrospectionStateNumber>
+      <IntrospectionStateNumber>687</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="test">
@@ -846,7 +846,7 @@ true posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>672</IntrospectionStateNumber>
+      <IntrospectionStateNumber>688</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="btree">
@@ -917,21 +917,44 @@ true posixrules
     <language id="25" parent="2" name="internal"/>
     <language id="26" parent="2" name="plpgsql"/>
     <language id="27" parent="2" name="sql"/>
-    <table id="28" parent="15" name="users">
-      <ObjectId>16651</ObjectId>
+    <table id="28" parent="15" name="first_users">
+      <ObjectId>16663</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>670</StateNumber>
+      <StateNumber>682</StateNumber>
     </table>
-    <column id="29" parent="28" name="login">
+    <table id="29" parent="15" name="users">
+      <ObjectId>16657</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>677</StateNumber>
+    </table>
+    <column id="30" parent="28" name="login">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>670</StateNumber>
+      <StateNumber>682</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="30" parent="28" name="password">
+    <column id="31" parent="28" name="password">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>670</StateNumber>
+      <StateNumber>682</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="32" parent="29" name="login">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>677</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="33" parent="29" name="password">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>677</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="34" parent="29" name="uuid">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>686</StateNumber>
       <TypeId>1043</TypeId>
     </column>
   </database-model>
