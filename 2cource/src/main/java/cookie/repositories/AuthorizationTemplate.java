@@ -44,7 +44,7 @@ public class AuthorizationTemplate {
     private void setUUID(UserWithCookie user) throws SQLException {
         PreparedStatement statement =
                 connection.prepareStatement(
-                        "UPDATE userspass SET uuid = ? WHERE login = ?");
+                        "UPDATE first_users SET uuid = ? WHERE login = ?");
         statement.setString(1, user.getUuid());
         statement.setString(2, user.getLogin());
         statement.execute();

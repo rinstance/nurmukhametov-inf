@@ -11,9 +11,9 @@ public class UsersCookieTaskImpl implements UsersCookieTaskRepository {
     private Connection connection;
     private SimpleJdbcTemplate jdbcTemplate;
     //language=SQL
-    private static final String SQL_FIND_USER_BY_LOGIN = "select * from users where login like ?";
+    private static final String SQL_FIND_USER_BY_LOGIN = "select * from first_users where login like ?";
     //language=SQL
-    private static final String SQL_FIND_USER_BY_UUID = "select * from users where uuid like ?";
+    private static final String SQL_FIND_USER_BY_UUID = "select * from first_users where uuid like ?";
 
 
     public UsersCookieTaskImpl(Connection connection) {

@@ -35,7 +35,7 @@ public class UsersServlet extends HttpServlet {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM first_users;");
             while (rs.next()) {
                 String login = rs.getString("login");
                 String password = rs.getString("password");
