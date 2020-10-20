@@ -1,21 +1,22 @@
 package cookie.repositories;
 
+
 import cookie.models.UserWithCookie;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
-public class UsersCookieImpl implements UsersCookieRepository {
+public class UsersCookieTaskImpl implements UsersCookieTaskRepository {
     private Connection connection;
     private SimpleJdbcTemplate jdbcTemplate;
     //language=SQL
     private static final String SQL_FIND_USER_BY_LOGIN = "select * from users where login like ?";
     //language=SQL
-    private static final String SQL_FIND_USER_BY_UUID = "select * from users where uuid_cookie like ?";
+    private static final String SQL_FIND_USER_BY_UUID = "select * from users where uuid like ?";
 
 
-    public UsersCookieImpl(Connection connection) {
+    public UsersCookieTaskImpl(Connection connection) {
         this.connection = connection;
         this.jdbcTemplate = new SimpleJdbcTemplate(connection);
     }
@@ -25,7 +26,7 @@ public class UsersCookieImpl implements UsersCookieRepository {
                 row.getString("login"),
                 row.getString("password"),
                 row.getString("uuid")
-        );
+                );
     };
 
     @Override
@@ -37,6 +38,7 @@ public class UsersCookieImpl implements UsersCookieRepository {
     public List<UserWithCookie> findByUUID(String uuid) {
         return jdbcTemplate.queryForList(SQL_FIND_USER_BY_UUID, usersRowMapper, uuid);
     }
+
 
     @Override
     public Optional<UserWithCookie> findById(Long id) {

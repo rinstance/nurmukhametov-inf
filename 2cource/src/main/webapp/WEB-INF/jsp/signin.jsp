@@ -6,17 +6,14 @@
 <body>
 <form action="/signin" method="post">
     <div class="container">
-        <h1>Вход</h1>
+        <h1>SignIn</h1>
         <hr>
         <b>Login</b>
         <input type="text" placeholder="Enter login" name="login" required>
         <b>Password</b>
         <input type="password" placeholder="Enter Password" name="password" required>
-        <button type="submit">
-            SignIn
-        </button>
+        <button type="submit">SignIn</button>
     </div>
-
 </form>
 </body>
 </html>

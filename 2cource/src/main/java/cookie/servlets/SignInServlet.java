@@ -23,33 +23,29 @@ public class SignInServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/jsp/signin.jsp").forward(req, resp);
     }
-
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Cookie[] cookies = req.getCookies();
+        Cookie mycookie = null;
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("myCookie"))
+                mycookie = cookie;
+        }
+
         try {
-            Class.forName("org.postgresql.Driver");
-            Cookie[] cookies = req.getCookies();
-            Cookie mycookie = null;
-
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("myCookie")) {
-                    mycookie = cookie;
-                }
-            }
-
             if (mycookie == null) {
                 Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
                 AuthorizationTemplate authorizationTemplate = new AuthorizationTemplate(connection);
-                Cookie cookie = authorizationTemplate.getCookieForUser(
-                        req.getParameter("login"),
-                        req.getParameter("password")
-                );
+                Cookie cookie = authorizationTemplate.getCookieForUser(req.getParameter("login"),
+                        req.getParameter("password"));
                 resp.addCookie(cookie);
             }
             resp.sendRedirect("/account");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 }
+
 

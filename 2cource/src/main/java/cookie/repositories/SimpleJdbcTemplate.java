@@ -32,7 +32,7 @@ public class SimpleJdbcTemplate {
             List<T> result = new ArrayList<>();
 
             if (resultSet == null) {
-                throw new SQLException("Empty result");
+                throw new SQLException("Empty");
             }
 
             while (resultSet.next()) {
