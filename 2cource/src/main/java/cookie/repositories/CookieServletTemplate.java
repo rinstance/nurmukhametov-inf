@@ -9,7 +9,7 @@ public class CookieServletTemplate {
         this.cookies = cookies;
     }
 
-    public String getValueByCookieName(String name){
+    public String getValueByCookieName(String name) {
         String value = null;
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals(name)) {

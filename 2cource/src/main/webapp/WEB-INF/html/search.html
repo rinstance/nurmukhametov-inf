@@ -10,44 +10,43 @@
 </head>
 <body>
 <script>
-    function renderText(users, table) {
+    function setTextInTable(users, table) {
+        console.log('fun ' + users)
         let innerHtml = '<p>\n' +
             '            </p>';
 
         for (let i = 0; i < users.length; i++) {
             innerHtml += '<tr>';
             innerHtml += '  <td>' + users[i]['login'] + '</td>';
-            innerHtml += '  <td>' + users[i]['password'] +  '</td>';
+            innerHtml += '  <td>' + users[i]['password'] + '</td>';
             innerHtml += '</tr>';
         }
         table.html(innerHtml);
     }
 
     function sendReq(login) {
-
         let data = {
             "login": login
         };
 
         $.ajax({
             type: "POST",
-            url: "/search",
             data: JSON.stringify(data),
+            url: "/search",
             success: function (response) {
-                renderText(response, $('#table'))
+                console.log('ajax ' + response)
+                setTextInTable(response, $('#table'))
             },
             dataType: "json",
             contentType: "application/json"
         });
     }
 </script>
-<div>
-    <input onkeyup="sendReq($('#login').val())" type="text" id="login">
-</div>
-<div>
-    <table id="table">
 
-    </table>
-</div>
+<input id="login" name="login" placeholder="поиск" oninput="sendReq($('#login').val())">
+
+<table id="table">
+
+</table>
 </body>
 </html>

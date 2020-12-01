@@ -35,24 +35,11 @@ public class HtmlServlet extends HttpServlet {
                 DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
 
         String sqlInsertUser = "insert into first_users values (?, ?);";
-        PreparedStatement preparedStatement =
-                null;
+        PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(sqlInsertUser);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
             preparedStatement.setString(1, login);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
             preparedStatement.setString(2, pass);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

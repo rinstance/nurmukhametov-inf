@@ -39,7 +39,9 @@ public class UsersServlet extends HttpServlet {
             while (rs.next()) {
                 String login = rs.getString("login");
                 String password = rs.getString("password");
-                User user = new User(login, password);
+                User user = new User();
+                user.setLogin(login);
+                user.setPassword(password);
                 users.add(user);
             }
             rs.close();
@@ -49,6 +51,11 @@ public class UsersServlet extends HttpServlet {
             e.printStackTrace();
         }
         System.out.println("Operation done successfully");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getParameter("ok"));
     }
 
     @Override

@@ -18,17 +18,16 @@ public class SearchUsersRepositoryJdbcImpl implements SearchUsersRepository {
     }
 
     private final RowMapper<User> usersRowMapper = row -> {
-        return new User(
-                row.getString("login"),
-                row.getString("password")
-        );
+        User user = new User();
+        user.setLogin(row.getString("login"));
+        user.setPassword(row.getString("password"));
+        return user;
     };
 
 
     @Override
-    public List<User> findAllByLoginStartingWith(String name) {
-        System.out.println("HERE");
-        return jdbcTemplate.queryForList(FIND_ALL_USERS_BY_LOGIN, usersRowMapper, name + "%");
+    public List<User> findAllByLoginStartingWith(String login) {
+        return jdbcTemplate.queryForList(FIND_ALL_USERS_BY_LOGIN, usersRowMapper, login + "%");
     }
 
 

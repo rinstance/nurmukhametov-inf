@@ -25,22 +25,21 @@ public class CookieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie[] cookies = req.getCookies();
-        req.setAttribute("user", getUser(cookies));
+//        req.setAttribute("user", getUser(cookies));
         req.getRequestDispatcher("WEB-INF/jsp/cookie.jsp").forward(req, resp);
     }
 
-    private UserWithCookie getUser(Cookie[] cookies) {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        UsersCookieTaskImpl usersCookieTask = new UsersCookieTaskImpl(connection);
-        CookieServletTemplate cookieServletTemplate = new CookieServletTemplate(cookies);
-        String uuid = cookieServletTemplate.getValueByCookieName("myCookie");
-        List<UserWithCookie> user = usersCookieTask.findByUUID(uuid);
-        return user.get(0);
-    }
+//    private UserWithCookie getUser(Cookie[] cookies) {
+//        Connection connection = null;
+//        try {
+//            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        UsersCookieTaskImpl usersCookieTask = new UsersCookieTaskImpl(connection);
+//        CookieServletTemplate cookieServletTemplate = new CookieServletTemplate(cookies);
+//        String uuid = cookieServletTemplate.getValueByCookieName("myCookie");
+//        List<UserWithCookie> user = usersCookieTask.findByUUID(uuid);
+//        return user.get(0);
+//    }
 }

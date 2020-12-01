@@ -4,6 +4,8 @@ package cookie.repositories;
 import cookie.models.UserWithCookie;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +28,7 @@ public class UsersCookieTaskImpl implements UsersCookieTaskRepository {
                 row.getString("login"),
                 row.getString("password"),
                 row.getString("uuid")
-                );
+        );
     };
 
     @Override
@@ -39,6 +41,18 @@ public class UsersCookieTaskImpl implements UsersCookieTaskRepository {
         return jdbcTemplate.queryForList(SQL_FIND_USER_BY_UUID, usersRowMapper, uuid);
     }
 
+    @Override
+    public void setUUID(UserWithCookie user) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                            "UPDATE first_users SET uuid = ? WHERE login = ?");
+            statement.setString(1, user.getUuid());
+            statement.setString(2, user.getLogin());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public Optional<UserWithCookie> findById(Long id) {

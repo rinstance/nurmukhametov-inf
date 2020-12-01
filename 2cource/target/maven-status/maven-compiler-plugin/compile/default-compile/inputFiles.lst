@@ -6,6 +6,7 @@ D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\servlets\AjaxSearchSe
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\UsersCookieTaskImpl.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\homeworks\servlets\SignInServlet.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\models\UserWithCookie.java
+D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\AuthCookieTemplate.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\servlets\SignInServlet.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\UsersCookieTaskRepository.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\homeworks\servlets\HtmlServlet.java
@@ -14,6 +15,4 @@ D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\SearchUs
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\servlets\CookieServlet.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\SearchUsersRepositoryJdbcImpl.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\CrudRepository.java
-D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\AuthorizationTemplate.java
 D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\repositories\CookieServletTemplate.java
-D:\Homework\nurmukhametov-inf\2cource\src\main\java\cookie\servlets\LogOutServlet.java

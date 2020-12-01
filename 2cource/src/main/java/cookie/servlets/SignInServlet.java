@@ -1,6 +1,6 @@
 package cookie.servlets;
 
-import cookie.repositories.AuthorizationTemplate;
+import cookie.repositories.AuthCookieTemplate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,16 +35,17 @@ public class SignInServlet extends HttpServlet {
         try {
             if (mycookie == null) {
                 Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-                AuthorizationTemplate authorizationTemplate = new AuthorizationTemplate(connection);
-                Cookie cookie = authorizationTemplate.getCookieForUser(req.getParameter("login"),
-                        req.getParameter("password"));
+                AuthCookieTemplate authCookieTemplate = new AuthCookieTemplate(connection);
+                Cookie cookie = authCookieTemplate.setCookieForUser(
+                        req.getParameter("login"),
+                        req.getParameter("password")
+                );
                 resp.addCookie(cookie);
             }
             resp.sendRedirect("/account");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
 

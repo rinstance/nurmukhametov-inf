@@ -16,7 +16,6 @@ public class SimpleJdbcTemplate {
     }
 
     public <T> List<T> queryForList(String sql, RowMapper<T> rowMapper, Object... args) {
-        System.out.println(args);
         try {
             ResultSet resultSet = null;
 
@@ -27,7 +26,6 @@ public class SimpleJdbcTemplate {
                 position++;
             }
             resultSet = preparedStatement.executeQuery();
-            
 
             List<T> result = new ArrayList<>();
 
@@ -35,11 +33,11 @@ public class SimpleJdbcTemplate {
                 throw new SQLException("Empty");
             }
 
-            while (resultSet.next()) {
+            while (resultSet.next())
                 result.add(rowMapper.mapRow(resultSet));
-            }
 
             return result;
+
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }

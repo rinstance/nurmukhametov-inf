@@ -25,7 +25,6 @@ public class AjaxSearchServlet extends HttpServlet {
     private Connection connection;
     private SearchUsersRepository usersRepository;
     private ObjectMapper objectMapper = new ObjectMapper();
-    private List<User> users = new ArrayList<>();
 
     @Override
     public void init() {
@@ -40,24 +39,10 @@ public class AjaxSearchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("FIRST");
         User user = objectMapper.readValue(req.getReader(), User.class);
-        System.out.println("SECOND");
         String users = objectMapper.writeValueAsString(usersRepository.findAllByLoginStartingWith(user.getLogin()));
-        System.out.println(users);
         resp.setContentType("application/json");
         resp.getWriter().println(users);
-
-
-//        System.out.println("FIRST");
-//        User user = objectMapper.readValue(req.getReader(), User.class);
-//
-//        System.out.println("SECOND");
-//        users.add(user);
-//
-//        String usersAsJson = objectMapper.writeValueAsString(users);
-//        resp.setContentType("application/json");
-//        resp.getWriter().println(usersAsJson);
     }
 
     @Override

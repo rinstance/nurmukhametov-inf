@@ -15,6 +15,10 @@
         <tr>
             <td>${user.login}</td>
             <td>${user.password}</td>
+
+            <form method="post" action="/users">
+                <input type="submit" value="${user.login}" name="ok">
+            </form>
         </tr>
     </c:forEach>
 </table>

@@ -4,8 +4,7 @@ cookie\repositories\CookieServletTemplate.class
 homeworks\model\User.class
 cookie\repositories\UsersCookieTaskRepository.class
 homeworks\servlets\UsersServlet.class
-cookie\repositories\AuthorizationTemplate.class
-cookie\servlets\LogOutServlet.class
+cookie\repositories\AuthCookieTemplate.class
 cookie\servlets\AjaxSearchServlet.class
 cookie\repositories\UsersCookieTaskImpl.class
 cookie\servlets\SignInServlet.class
