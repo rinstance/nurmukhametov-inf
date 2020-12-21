@@ -1,4 +1,4 @@
-package models;
+package ru.itis.models;
 
 import java.sql.Date;
 import java.sql.Timestamp;

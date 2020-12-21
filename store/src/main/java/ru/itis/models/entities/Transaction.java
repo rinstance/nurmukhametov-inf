@@ -1,4 +1,4 @@
-package models;
+package ru.itis.models;
 
 public class Transaction {
     private Integer id;
