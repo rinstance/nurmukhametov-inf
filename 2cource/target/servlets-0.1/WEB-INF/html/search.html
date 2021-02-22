@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+    function setTextInTable(users, table) {
+        console.log('fun ' + users)
+        let innerHtml = '<p>\n' +
+            '            </p>';
+
+        for (let i = 0; i < users.length; i++) {
+            innerHtml += '<tr>';
+            innerHtml += '  <td>' + users[i]['login'] + '</td>';
+            innerHtml += '  <td>' + users[i]['password'] + '</td>';
+            innerHtml += '</tr>';
+        }
+        table.html(innerHtml);
+    }
+
+    function sendReq(login) {
+        let data = {
+            "login": login
+        };
+
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(data),
+            url: "/search",
+            success: function (response) {
+                console.log('ajax ' + response)
+                setTextInTable(response, $('#table'))
+            },
+            dataType: "json",
+            contentType: "application/json"
+        });
+    }
+</script>
+
+<input id="login" name="login" placeholder="поиск" oninput="sendReq($('#login').val())">
+
+<table id="table">
+
+</table>
+</body>
+</html>
