@@ -1,8 +1,8 @@
-package ru.itis.dto;
+package ru.itis.models.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.itis.models.User;
+import ru.itis.models.entities.User;
 
 @Getter
 @Setter

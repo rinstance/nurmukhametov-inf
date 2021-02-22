@@ -1,10 +1,10 @@
-package services.items;
+package ru.itis.services.items;
 
-import models.Item;
-import repositories.items.ItemRepository;
+import ru.itis.models.dto.ItemDto;
+import ru.itis.models.entities.Item;
+import ru.itis.repositories.items.ItemRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ItemServiceImpl implements ItemService {
     private ItemRepository itemRepository;
@@ -16,5 +16,15 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getItems() {
         return itemRepository.findAll();
+    }
+
+    @Override
+    public void add(ItemDto itemDto) {
+        itemRepository.save(new Item(
+                itemDto.getTitle(),
+                itemDto.getCompanyId(),
+                itemDto.getCount(),
+                itemDto.getImage()
+        ));
     }
 }

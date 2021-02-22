@@ -1,6 +1,6 @@
-package services.companies;
+package ru.itis.services.companies;
 
-import models.Company;
+import ru.itis.models.entities.Company;
 
 import java.util.List;
 

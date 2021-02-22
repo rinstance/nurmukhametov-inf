@@ -1,9 +1,7 @@
-package services.detail_item;
+package ru.itis.services.detail_item;
 
-import dto.UserDto;
-import models.Item;
-import models.User;
-import repositories.items.ItemRepository;
+import ru.itis.models.entities.Item;
+import ru.itis.repositories.items.ItemRepository;
 
 import java.util.Optional;
 

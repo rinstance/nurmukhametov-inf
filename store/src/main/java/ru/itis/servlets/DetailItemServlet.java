@@ -1,17 +1,17 @@
-package servlets;
+package ru.itis.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import dto.UserDto;
-import models.Item;
-import models.Order;
-import models.Transaction;
-import services.companies.CompaniesService;
-import services.detail_item.DetailItemService;
-import services.items.ItemService;
-import services.orders.OrderService;
-import services.sign_in.SignInService;
-import services.tx.TxService;
+import ru.itis.models.dto.UserDto;
+import ru.itis.models.entities.Item;
+import ru.itis.models.entities.Order;
+import ru.itis.models.entities.Transaction;
+import ru.itis.services.companies.CompaniesService;
+import ru.itis.services.detail_item.DetailItemService;
+import ru.itis.services.items.ItemService;
+import ru.itis.services.orders.OrderService;
+import ru.itis.services.sign_in.SignInService;
+import ru.itis.services.tx.TxService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -65,42 +65,43 @@ public class DetailItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (req.getParameter("order") != null) {
             if (type == null) {
-                resp.sendRedirect("/test");
+                resp.sendRedirect("/error");
             } else {
                 if (req.getParameter("calendar") == null) {
                     System.out.println("calendar null");
                 } else {
-                    if (req.getParameter("calendar").equals("") ||
-                            req.getParameter("card_input").equals("") ||
-                            req.getParameter("month_input").equals("") ||
-                            req.getParameter("code_input").equals("")) {
-                        resp.sendRedirect("/test");
-                    } else {
-                        if (isBefore(req.getParameter("calendar"))) {
-                            resp.sendRedirect("/test");
-                        } else {
-                            addTx();
-                            incUserCount(req.getSession().getAttribute("user"));
-                            incCompanyCount();
-                            updateOrDeleteById();
-                            try {
-                                addOrder(req.getSession().getAttribute("user"), req.getParameter("calendar"));
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            resp.sendRedirect("/orders");
+                    if (type.equals("card")) {
+                        if (req.getParameter("calendar").equals("") || req.getParameter("card_input").equals("") || req.getParameter("month_input").equals("") || req.getParameter("code_input").equals("")) {
+                            resp.sendRedirect("/error");
                         }
                     }
+                    if (isBefore(req.getParameter("calendar"))) {
+                        resp.sendRedirect("/error");
+                    } else {
+                        addTx();
+                        incUserCount(req.getSession().getAttribute("user"));
+                        incCompanyCount();
+                        updateOrDeleteById();
+                        try {
+                            addOrder(req.getSession().getAttribute("user"), req.getParameter("calendar"));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        resp.sendRedirect("/orders");
+                    }
                 }
-            }
-        } else {
-            Transaction transaction = objectMapper.readValue(req.getReader(), Transaction.class);
-            String s = objectMapper.writeValueAsString(transaction);
-            resp.setContentType("application/json");
-            resp.getWriter().println(s);
-            type = new Gson().fromJson(s, Transaction.class).getType();
         }
+    } else
+
+    {
+        Transaction transaction = objectMapper.readValue(req.getReader(), Transaction.class);
+        String s = objectMapper.writeValueAsString(transaction);
+        resp.setContentType("application/json");
+        resp.getWriter().println(s);
+        type = new Gson().fromJson(s, Transaction.class).getType();
     }
+
+}
 
     private boolean isBefore(String calendar) {
         LocalDate localDate = LocalDate.parse(calendar);

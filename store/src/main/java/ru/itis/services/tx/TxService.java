@@ -1,6 +1,6 @@
-package services.tx;
+package ru.itis.services.tx;
 
-import models.Transaction;
+import ru.itis.models.entities.Transaction;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ru.itis.dto;
+package ru.itis.models.dto;
 
 import lombok.Getter;
 import lombok.Setter;

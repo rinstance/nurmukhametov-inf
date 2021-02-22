@@ -1,15 +1,10 @@
-package servlets;
+package ru.itis.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.UserDto;
-import models.Order;
-import models.Transaction;
-import services.companies.CompaniesService;
-import services.detail_item.DetailItemService;
-import services.items.ItemService;
-import services.orders.OrderService;
-import services.sign_in.SignInService;
-import services.tx.TxService;
+import ru.itis.models.dto.UserDto;
+import ru.itis.models.entities.Order;
+import ru.itis.services.orders.OrderService;
+import ru.itis.services.tx.TxService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;

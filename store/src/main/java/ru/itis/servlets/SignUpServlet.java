@@ -1,7 +1,7 @@
-package servlets;
+package ru.itis.servlets;
 
-import dto.UserForm;
-import services.sign_up.SignUpService;
+import ru.itis.models.dto.UserForm;
+import ru.itis.services.sign_up.SignUpService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;

@@ -21,8 +21,6 @@
         <p>Company name: ${company.key.name}</p>
         <p>Count sold items: ${company.key.countSoldItems}</p>
 
-        <p>Company items:</p>
-
         <c:forEach items="${company.value}" var="val">
 
             <p>Name: ${val.name} Count: ${val.count}</p>

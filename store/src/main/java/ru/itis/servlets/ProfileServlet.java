@@ -1,6 +1,6 @@
-package servlets;
+package ru.itis.servlets;
 
-import dto.UserDto;
+import ru.itis.models.dto.UserDto;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

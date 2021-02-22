@@ -1,11 +1,7 @@
-package services.tx;
+package ru.itis.services.tx;
 
-import dto.UserDto;
-import models.Transaction;
-import models.User;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import repositories.tx.TxRepository;
-import repositories.user.UserRepository;
+import ru.itis.models.entities.Transaction;
+import ru.itis.repositories.tx.TxRepository;
 
 import java.util.List;
 import java.util.Optional;

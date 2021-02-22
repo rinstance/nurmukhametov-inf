@@ -1,4 +1,4 @@
-package filter;
+package ru.itis.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -26,29 +26,33 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = request.getSession(false);
         // флаг, аутентифицирован ли пользователь
         Boolean isAuthenticated = false;
+        Boolean isAdmin = false;
         // существует ли сессия вообще?
         Boolean sessionExists = session != null;
         // идет ли запрос на страницу входа или регистрации?
         Boolean isRequestOnOpenPage = request.getRequestURI().equals("/sign_in") ||
                 request.getRequestURI().equals("/sign_up");
+        Boolean isRequestOnAdminPage = request.getRequestURI().equals("/admin");
 
+        Boolean isRequestOnAuthPage = request.getRequestURI().equals("/signIn") ||
+                request.getRequestURI().equals("/signUp");
         // если сессия есть
         if (sessionExists) {
-            // проверим, есть ли атрибует user?
             isAuthenticated = session.getAttribute("user") != null;
+            isAdmin = session.getAttribute("admin") != null;
         }
 
-        // если авторизован и запрашивает не открытую страницу или если не авторизован и запрашивает открытую
-        if (isAuthenticated && !isRequestOnOpenPage || !isAuthenticated && isRequestOnOpenPage) {
-            // отдаем ему то, что он хочет
+        if ((isAuthenticated && !isRequestOnAuthPage && !isRequestOnAdminPage)
+                || (!isAuthenticated && isRequestOnOpenPage)
+                || (isAdmin && isRequestOnAdminPage)) {
             filterChain.doFilter(request, response);
-        } else if (isAuthenticated && isRequestOnOpenPage) {
+        } else if (isAuthenticated && isRequestOnAuthPage) {
             // пользователь аутенцифицирован и запрашивает страницу входа
             // - отдаем ему профиль
             response.sendRedirect("/profile");
         } else {
             // если пользователь не аутенцицицирован и запрашивает другие страницы
-            response.sendRedirect("/sign_in");
+            response.sendRedirect("/sign_in ");
         }
 
     }

@@ -1,10 +1,10 @@
-package services.sign_in;
+package ru.itis.services.sign_in;
 
-import dto.UserDto;
-import dto.UserForm;
-import models.User;
+import ru.itis.models.dto.UserDto;
+import ru.itis.models.dto.UserForm;
+import ru.itis.models.entities.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import repositories.user.UserRepository;
+import ru.itis.repositories.user.UserRepository;
 
 import java.util.Optional;
 

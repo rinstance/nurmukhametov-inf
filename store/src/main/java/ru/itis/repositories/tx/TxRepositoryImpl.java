@@ -1,7 +1,6 @@
-package repositories.tx;
+package ru.itis.repositories.tx;
 
-import models.Item;
-import models.Transaction;
+import ru.itis.models.entities.Transaction;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

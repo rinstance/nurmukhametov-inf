@@ -1,7 +1,7 @@
-package repositories.orders;
+package ru.itis.repositories.orders;
 
-import models.Order;
-import repositories.CrudRepository;
+import ru.itis.models.entities.Order;
+import ru.itis.repositories.CrudRepository;
 
 import java.util.List;
 

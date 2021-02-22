@@ -1,6 +1,6 @@
-package services.sign_up;
+package ru.itis.services.sign_up;
 
-import dto.UserForm;
+import ru.itis.models.dto.UserForm;
 
 public interface SignUpService {
     void signUp(UserForm form);

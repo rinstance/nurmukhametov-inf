@@ -1,8 +1,7 @@
-package services.orders;
+package ru.itis.services.orders;
 
-import models.Order;
-import repositories.items.ItemRepository;
-import repositories.orders.OrderRepository;
+import ru.itis.models.entities.Order;
+import ru.itis.repositories.orders.OrderRepository;
 
 import java.util.List;
 

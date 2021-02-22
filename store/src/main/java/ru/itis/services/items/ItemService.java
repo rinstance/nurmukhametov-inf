@@ -1,10 +1,11 @@
-package services.items;
+package ru.itis.services.items;
 
-import models.Item;
+import ru.itis.models.dto.ItemDto;
+import ru.itis.models.entities.Item;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ItemService {
     List<Item> getItems();
+    void add(ItemDto itemDto);
 }

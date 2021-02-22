@@ -1,6 +1,6 @@
-package repositories.items;
+package ru.itis.repositories.items;
 
-import models.Item;
+import ru.itis.models.entities.Item;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -19,6 +19,9 @@ public class ItemRepositoryImpl implements ItemRepository {
     //language=SQL
     private static final String SQL_DEC_COUNT =
             "UPDATE items SET count = count-1 where id = ?;";
+    //language=SQL
+    private static final String SQL_INSERT =
+            "insert into items(name, count, img, company_id) values (?, ?, ?, ?);";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -38,7 +41,11 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public void save(Item entity) {
-
+        jdbcTemplate.update(SQL_INSERT,
+                entity.getName(),
+                entity.getCount(),
+                entity.getImg(),
+                entity.getCompany_id());
     }
 
     @Override

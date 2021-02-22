@@ -1,4 +1,4 @@
-package ru.itis.models;
+package ru.itis.models.entities;
 
 public class Company {
     private Integer id;

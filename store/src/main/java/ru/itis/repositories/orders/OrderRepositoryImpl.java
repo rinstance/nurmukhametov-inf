@@ -1,6 +1,6 @@
-package repositories.orders;
+package ru.itis.repositories.orders;
 
-import models.Order;
+import ru.itis.models.entities.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 

@@ -1,7 +1,6 @@
-package repositories.companies;
+package ru.itis.repositories.companies;
 
-import models.Company;
-import models.Item;
+import ru.itis.models.entities.Company;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 

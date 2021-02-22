@@ -1,4 +1,4 @@
-package servlets;
+package ru.itis.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

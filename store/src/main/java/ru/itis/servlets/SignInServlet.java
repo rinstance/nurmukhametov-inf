@@ -1,10 +1,9 @@
-package servlets;
+package ru.itis.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.UserDto;
-import dto.UserForm;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import services.sign_in.SignInService;
+import ru.itis.models.dto.UserDto;
+import ru.itis.models.dto.UserForm;
+import ru.itis.services.sign_in.SignInService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -44,6 +43,9 @@ public class SignInServlet extends HttpServlet {
 
             if (userDto != null) {
                 HttpSession session = request.getSession();
+                if (userDto.getLogin().equals("rinstance")) {
+                    session.setAttribute("admin", userDto);
+                }
                 session.setAttribute("user", userDto);
                 response.sendRedirect("/profile");
             } else {

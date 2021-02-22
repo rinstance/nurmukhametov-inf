@@ -1,10 +1,9 @@
-package servlets;
+package ru.itis.servlets;
 
-import models.Company;
-import models.Item;
-import services.companies.CompaniesService;
-import services.detail_item.DetailItemService;
-import services.items.ItemService;
+import ru.itis.models.entities.Company;
+import ru.itis.models.entities.Item;
+import ru.itis.services.companies.CompaniesService;
+import ru.itis.services.items.ItemService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;

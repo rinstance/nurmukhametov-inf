@@ -1,6 +1,6 @@
-package repositories.user;
+package ru.itis.repositories.user;
 
-import models.User;
+import ru.itis.models.entities.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

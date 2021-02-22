@@ -1,9 +1,7 @@
-package repositories.items;
+package ru.itis.repositories.items;
 
-import models.Item;
-import repositories.CrudRepository;
-
-import java.util.List;
+import ru.itis.models.entities.Item;
+import ru.itis.repositories.CrudRepository;
 
 public interface ItemRepository extends CrudRepository<Item> {
     void decCount(Integer id);

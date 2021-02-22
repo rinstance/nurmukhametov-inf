@@ -1,6 +1,6 @@
-package services.orders;
+package ru.itis.services.orders;
 
-import models.Order;
+import ru.itis.models.entities.Order;
 
 import java.util.List;
 

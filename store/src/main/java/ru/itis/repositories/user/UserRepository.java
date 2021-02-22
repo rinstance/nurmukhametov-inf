@@ -1,7 +1,7 @@
-package repositories.user;
+package ru.itis.repositories.user;
 
-import models.User;
-import repositories.CrudRepository;
+import ru.itis.models.entities.User;
+import ru.itis.repositories.CrudRepository;
 
 import java.util.Optional;
 

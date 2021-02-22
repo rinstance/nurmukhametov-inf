@@ -1,9 +1,9 @@
-package services.sign_up;
+package ru.itis.services.sign_up;
 
-import dto.UserForm;
-import models.User;
+import ru.itis.models.dto.UserForm;
+import ru.itis.models.entities.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import repositories.user.UserRepository;
+import ru.itis.repositories.user.UserRepository;
 
 public class SignUpServiceImpl implements SignUpService {
     private UserRepository usersRepository;

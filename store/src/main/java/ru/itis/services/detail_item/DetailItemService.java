@@ -1,6 +1,6 @@
-package services.detail_item;
+package ru.itis.services.detail_item;
 
-import models.Item;
+import ru.itis.models.entities.Item;
 
 public interface DetailItemService {
     Item getDetailItemById(Integer id);

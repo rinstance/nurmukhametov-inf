@@ -1,4 +1,4 @@
-package ru.itis.models;
+package ru.itis.models.entities;
 
 public class Item {
     private Integer id;
@@ -8,6 +8,19 @@ public class Item {
     private String img;
 
     public Item() {}
+
+    public Item(String name, Integer company_id, Integer count, String img) {
+        this.name = name;
+        this.company_id = company_id;
+        this.count = count;
+        this.img = img;
+    }
+
+    public Item(String name, Integer count, String img) {
+        this.name = name;
+        this.count = count;
+        this.img = img;
+    }
 
     public Item(Integer id, String name, Integer company_id, Integer count, String img) {
         this.id = id;
