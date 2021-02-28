@@ -2,6 +2,7 @@ package ru.itis.springbootdemo.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "companies")
@@ -11,6 +12,9 @@ public class Company {
     private Long id;
     private String name;
     private Integer countSoldItems;
+
+    @OneToMany(mappedBy = "company")
+    private List<Item> items;
 
     public void setId(Long id) {
         this.id = id;

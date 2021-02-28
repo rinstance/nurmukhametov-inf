@@ -1,5 +1,7 @@
 package ru.itis.springbootdemo.services;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.itis.springbootdemo.dto.UserDto;
