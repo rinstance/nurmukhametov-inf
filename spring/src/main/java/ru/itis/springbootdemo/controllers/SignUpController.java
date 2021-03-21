@@ -20,6 +20,6 @@ public class SignUpController {
     @PostMapping("/signUp")
     public String signUp(UserForm form) {
         signUpService.signUp(form);
-        return "redirect:/signUp";
+        return "redirect:/signIn";
     }
 }

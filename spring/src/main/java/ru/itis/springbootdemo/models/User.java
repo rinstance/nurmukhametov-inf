@@ -25,6 +25,16 @@ public class User {
     private State state;
     private String confirmCode;
 
+    private Role role;
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
     public Long getId() {
         return id;
     }
