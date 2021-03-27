@@ -28,16 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
+                .antMatchers("/papers/**").permitAll()
                 .antMatchers("/signUp").permitAll()
-                .antMatchers("/**").authenticated()
-                .antMatchers("/users").hasAnyAuthority("ADMIN")
                 .antMatchers("/profile").authenticated()
+                .antMatchers("/files/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/profile")
-                .failureUrl("/signIn?error")
-                .permitAll();
+                .failureUrl("/signIn?error");
     }
+
 }
