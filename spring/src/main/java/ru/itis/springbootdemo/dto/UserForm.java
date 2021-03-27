@@ -6,6 +6,15 @@ import lombok.Data;
 public class UserForm {
     private String email;
     private String password;
+    private String phone;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 
     public String getEmail() {
         return email;

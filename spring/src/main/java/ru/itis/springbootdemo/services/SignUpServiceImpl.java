@@ -18,7 +18,8 @@ public class SignUpServiceImpl implements SignUpService {
     private UsersRepository usersRepository;
     @Autowired
     private MailsService mailsService;
-
+    @Autowired
+    private SmsService smsService;
 
     @Override
     public void signUp(UserForm form) {
@@ -29,5 +30,6 @@ public class SignUpServiceImpl implements SignUpService {
         newUser.setConfirmCode(UUID.randomUUID().toString());
         usersRepository.save(newUser);
         mailsService.sendEmailForConfirm(newUser.getEmail(), newUser.getConfirmCode());
+        smsService.sendSms(form.getPhone(), "Вы зарегистрированы!");
     }
 }

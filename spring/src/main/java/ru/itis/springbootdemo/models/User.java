@@ -26,6 +26,15 @@ public class User {
     private String confirmCode;
 
     private Role role;
+    private String phone;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 
     public void setRole(Role role) {
         this.role = role;

@@ -11,11 +11,8 @@
     <title>Document</title>
     <script>
         function sendFile() {
-            // данные для отправки
             let formData = new FormData();
-            // забрал файл из input
             let files = ($('#file'))[0]['files'];
-            // добавляю файл в formData
             [].forEach.call(files, function (file, i, files) {
                 formData.append("file", file);
             });
@@ -28,7 +25,7 @@
                 contentType: false
             })
                 .done(function (response) {
-                    let fileUrl = 'http://localhost:8080/files/' + response;
+                    let fileUrl = 'http://localhost:8070/files/' + response;
                     $('#photo').append('<img src = "' + fileUrl + '"/>');
                 })
                 .fail(function () {
