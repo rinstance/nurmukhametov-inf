@@ -25,7 +25,7 @@
                 contentType: false
             })
                 .done(function (response) {
-                    let fileUrl = 'http://localhost:8070/files/' + response;
+                    let fileUrl = 'http://localhost:8080/files/' + response;
                     $('#photo').append('<img src = "' + fileUrl + '"/>');
                 })
                 .fail(function () {

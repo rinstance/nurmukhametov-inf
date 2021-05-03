@@ -62,20 +62,20 @@
 <table id="table">
 </table>
 
-<#--<table>-->
-<#--    <tr>-->
-<#--        <th>Id</th>-->
-<#--        <th>Name</th>-->
-<#--        <th>Sold items</th>-->
-<#--    </tr>-->
-<#--    <#list persons as company>-->
+<#--<div>-->
+<#--    <table>-->
 <#--        <tr>-->
-<#--            <td>${company.id}</td>-->
-<#--            <td>${company.name}</td>-->
-<#--            <td>${company.countSoldItems}</td>-->
+<#--            <th>id</th>-->
+<#--            <th>email</th>-->
 <#--        </tr>-->
-<#--    </#list>-->
-<#--</table>-->
+<#--        <#list companies as user>-->
+<#--            <tr>-->
+<#--                <td>${user.id}</td>-->
+<#--                <td>${user.name}</td>-->
+<#--            </tr>-->
+<#--        </#list>-->
+<#--    </table>-->
+<#--</div>-->
 
 </body>
 </html>

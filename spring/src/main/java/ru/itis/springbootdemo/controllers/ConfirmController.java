@@ -16,8 +16,6 @@ public class ConfirmController {
 
     @GetMapping("/confirm/{code}")
     public String confirmUser(@PathVariable("code") String confirmCode) {
-        // TODO: реализовать сервис для подтерждения (найти по коду человека и поставить ему статус CONFIRMED)
-        // TODO: вернуть страницу об успешном прохождении подтверждения
         if (usersService.getUUID(confirmCode))
             return "accept_mail";
         return null;

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
 import ru.itis.springbootdemo.dto.ItemDto;
 import ru.itis.springbootdemo.dto.ItemForm;
 import ru.itis.springbootdemo.dto.ItemPage;
@@ -14,6 +15,7 @@ import ru.itis.springbootdemo.repositories.ItemRepository;
 
 import static ru.itis.springbootdemo.dto.ItemDto.from;
 
+@Component
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemRepository itemRepository;

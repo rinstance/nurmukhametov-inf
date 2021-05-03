@@ -12,9 +12,6 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class FileInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +24,15 @@ public class FileInfo {
 
     public FileInfo() {
 
+    }
+
+    public FileInfo(Long id, String storageFileName, String originalFileName, String type, Long size, String url) {
+        this.id = id;
+        this.storageFileName = storageFileName;
+        this.originalFileName = originalFileName;
+        this.type = type;
+        this.size = size;
+        this.url = url;
     }
 
     public void setId(Long id) {
