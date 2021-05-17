@@ -9,13 +9,6 @@ import ru.itis.springbootdemo.models.User;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 10.02.2021
- * spring-boot-demo
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,15 +18,23 @@ public class UserDto {
     private String email;
 
     public static UserDto from(User user) {
-        return UserDto.builder()
-                .id(user.getId())
-                .email(user.getEmail())
-                .build();
+        UserDto userDto = new UserDto();
+        userDto.setEmail(user.getEmail());
+        userDto.setId(user.getId());
+        return userDto;
     }
 
     public static List<UserDto> from(List<User> users) {
         return users.stream()
                 .map(UserDto::from)
                 .collect(Collectors.toList());
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

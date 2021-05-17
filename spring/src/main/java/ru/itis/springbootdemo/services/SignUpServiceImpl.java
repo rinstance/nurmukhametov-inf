@@ -1,6 +1,7 @@
 package ru.itis.springbootdemo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.itis.springbootdemo.dto.UserForm;
@@ -8,7 +9,9 @@ import ru.itis.springbootdemo.models.Role;
 import ru.itis.springbootdemo.models.State;
 import ru.itis.springbootdemo.models.User;
 import ru.itis.springbootdemo.repositories.UsersRepository;
+import ru.itis.springbootdemo.security.UserDetailsImpl;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -34,5 +37,11 @@ public class SignUpServiceImpl implements SignUpService {
         usersRepository.save(newUser);
 //        mailsService.sendEmailForConfirm(newUser.getEmail(), newUser.getConfirmCode());
         smsService.sendSms(form.getPhone(), "Вы зарегистрированы!");
+    }
+
+    @Override
+    public UserDetailsImpl getUser(UserForm userForm) {
+        Optional<User> user = usersRepository.getUserByEmailAndPassword(userForm.getEmail(), passwordEncoder.encode(userForm.getPassword()));
+        return user.map(UserDetailsImpl::new).orElse(null);
     }
 }

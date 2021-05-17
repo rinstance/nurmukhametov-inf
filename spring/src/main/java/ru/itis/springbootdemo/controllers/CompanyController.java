@@ -16,6 +16,13 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
+    @GetMapping("/companies")
+    public String getCompaniesPage(Model model) {
+        List<Company> list = companyService.getAll();
+        model.addAttribute("companies", list);
+        return "companies";
+    }
+
     @RequestMapping(value = "/companies_search", method = RequestMethod.GET)
     public String hello(Model model, @RequestParam(defaultValue = "") String searchName) {
         model.addAttribute("companies", companyService.getAll());

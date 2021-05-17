@@ -10,7 +10,7 @@ import ru.itis.springbootdemo.security.UserDetailsImpl;
 public class ProfileController {
     @GetMapping("/profile")
     public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        model.addAttribute("userName", userDetails.getUsername());
+        model.addAttribute("currUser", userDetails.getUser());
         return "profile_page";
     }
 }
