@@ -24,6 +24,12 @@ public class ItemController {
 //        return ResponseEntity.ok(itemService.search(size, page, query, sort, direction));
 //    }
 
+    @GetMapping("/items")
+    public String getAllItems(Model model) {
+        model.addAttribute("itemsPage", itemService.getAll());
+        return "all_items";
+    }
+
     @GetMapping("/items/search")
     public String search(@RequestParam("size") Integer size,
                                            @RequestParam("page") Integer page,
@@ -37,7 +43,7 @@ public class ItemController {
 
     @PostMapping("/items/{company-id}/items")
     @ResponseBody
-    public ItemDto addArticle(@PathVariable("company-id") Integer companyId, @RequestBody ItemForm itemForm) {
+    public ItemDto addItem(@PathVariable("company-id") Integer companyId, @RequestBody ItemForm itemForm) {
         return itemService.addItem(companyId, itemForm);
     }
 }

@@ -14,10 +14,10 @@
 <center>
     <u><h1>My Orders</h1></u>
     <hr class="col-xs-12">
-    <#list orders as order>
-        <p>Item: ${order.item}</p>
-        <p>Order time: ${order.orderTime}</p>
-        <p>Get time: ${order.getDate}</p>
+    <#list orders as key, value>
+        <p>Item: ${value.name}</p>
+        <p>Order time: ${key.orderTime}</p>
+        <p>Get time: ${key.getDate}</p>
         <hr class="col-xs-12">
     </#list>
 </center>

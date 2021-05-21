@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String name;
     private String img;
     private Integer count;
@@ -25,7 +25,7 @@ public class Item {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class Item {
         this.company = company;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

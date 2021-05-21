@@ -12,5 +12,5 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query("select item from Item item where " +
             "(:q = 'empty' or UPPER(item.name) like UPPER(concat('%', :q, '%')))")
     Page<Item> search(@Param("q") String q, Pageable pageable);
-
+    Item getById(Long id);
 }

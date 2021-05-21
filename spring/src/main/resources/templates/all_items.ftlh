@@ -18,9 +18,18 @@
 </ul>
 
 <center>
-    <u> <h1>Profile</h1></u>
-    <h1>Phone: +${currUser.phone}</h1>
-    <h1>Email: ${currUser.email}</h1>
+    <u> <h1>Items for Sale</h1></u>
+    <hr class="col-xs-12">
+    <#list itemsPage as item>
+        <img src="${item.img}" width="200" height="200">
+        <p>Title: ${item.name}</p>
+        <p>Company: ${item.company.name}</p>
+        <p>Count: ${item.count}</p>
+        <form method="get" action="/order/saved">
+            <input type="submit" class="btn btn-outline-primary" name="id" value="${item.id}">
+        </form>
+        <hr class="col-xs-12">
+    </#list>
 </center>
 </body>
 </html>

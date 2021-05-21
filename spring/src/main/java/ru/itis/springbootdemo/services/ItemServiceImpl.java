@@ -13,6 +13,8 @@ import ru.itis.springbootdemo.models.Item;
 import ru.itis.springbootdemo.repositories.CompanyRepository;
 import ru.itis.springbootdemo.repositories.ItemRepository;
 
+import java.util.List;
+
 import static ru.itis.springbootdemo.dto.ItemDto.from;
 
 @Component
@@ -44,6 +46,16 @@ public class ItemServiceImpl implements ItemService {
         Page<Item> papersPage = itemRepository.search(query, pageRequest);
 
         return new ItemPage(papersPage.getTotalPages(), from(papersPage.getContent()));
+    }
+
+    @Override
+    public List<Item> getAll() {
+        return itemRepository.findAll();
+    }
+
+    @Override
+    public Item getById(Long itemId) {
+        return itemRepository.getById(itemId);
     }
 
 

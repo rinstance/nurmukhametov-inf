@@ -18,9 +18,19 @@
 </ul>
 
 <center>
-    <u> <h1>Profile</h1></u>
-    <h1>Phone: +${currUser.phone}</h1>
-    <h1>Email: ${currUser.email}</h1>
+    <u> <h1>OK</h1></u>
+    <p></p>
+
+    <#list savedOrders as order>
+        <p>Order time: ${order.orderTime}</p>
+        <p>Getting time: ${order.getDate}</p>
+    </#list>
+
+    <p></p>
+
+    <form method="get" action="/orders">
+        <input type="submit" class="btn btn-outline-primary" value="My orders">
+    </form>
 </center>
 </body>
 </html>

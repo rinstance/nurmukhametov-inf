@@ -11,23 +11,32 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "all_orders")
+@Table(name = "customers_orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "user_id")
     private Long userId;
-    @Column(name = "tx_id")
-    private Integer txId;
     @Column(name = "order_time")
-    private Timestamp orderTime;
+    private Date orderTime;
     @Column(name = "get_date")
     private Date getDate;
-    @Column(name = "item_name")
-    private String itemName;
+    @Column(name = "item_id")
+    private Long itemId;
 
     public Order() {}
+
+    public Order(Long userId, Date orderTime, Date getDate, Long itemId) {
+        this.userId = userId;
+        this.orderTime = orderTime;
+        this.getDate = getDate;
+        this.itemId = itemId;
+    }
+
+    public Date getOrderTime() {
+        return orderTime;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -37,20 +46,12 @@ public class Order {
         this.userId = userId;
     }
 
-    public void setTxId(Integer txId) {
-        this.txId = txId;
-    }
-
-    public void setOrderTime(Timestamp orderTime) {
+    public void setOrderTime(Date orderTime) {
         this.orderTime = orderTime;
     }
 
     public void setGetDate(Date getDate) {
         this.getDate = getDate;
-    }
-
-    public void setItem(String item) {
-        this.itemName = item;
     }
 
     public Integer getId() {
@@ -61,19 +62,15 @@ public class Order {
         return userId;
     }
 
-    public Integer getTxId() {
-        return txId;
-    }
-
-    public Timestamp getOrderTime() {
-        return orderTime;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public Date getGetDate() {
         return getDate;
     }
 
-    public String getItem() {
-        return itemName;
+    public Long getItemId() {
+        return itemId;
     }
 }

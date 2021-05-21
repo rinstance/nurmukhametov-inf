@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ItemDto {
-    private Integer id;
+    private Long id;
     private String name;
     private String img;
     private Integer count;
@@ -27,7 +27,7 @@ public class ItemDto {
     }
 
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,7 +43,7 @@ public class ItemDto {
         this.count = count;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
