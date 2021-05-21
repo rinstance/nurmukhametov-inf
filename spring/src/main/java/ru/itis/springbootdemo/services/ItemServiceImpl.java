@@ -14,6 +14,7 @@ import ru.itis.springbootdemo.repositories.CompanyRepository;
 import ru.itis.springbootdemo.repositories.ItemRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import static ru.itis.springbootdemo.dto.ItemDto.from;
 
@@ -56,6 +57,21 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item getById(Long itemId) {
         return itemRepository.getById(itemId);
+    }
+
+    @Override
+    public void changeCounts(Long itemId) {
+        Optional<Item> optionalItem = itemRepository.findById(itemId);
+        if (optionalItem.isPresent()) {
+            Item item = optionalItem.get();
+            int newCount = item.getCount() - 1;
+            if (newCount > 0) {
+                item.setCount(newCount);
+                itemRepository.save(item);
+            } else {
+                itemRepository.delete(item);
+            }
+        }
     }
 
 

@@ -13,4 +13,5 @@ public interface ItemService {
     ItemPage search(Integer size, Integer page, String query, String sort, String direction);
     List<Item> getAll();
     Item getById(Long itemId);
+    void changeCounts(Long itemId);
 }

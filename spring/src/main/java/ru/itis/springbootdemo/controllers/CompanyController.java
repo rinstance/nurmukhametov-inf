@@ -23,6 +23,12 @@ public class CompanyController {
         return "companies";
     }
 
+    @CrossOrigin("http://localhost")
+    @GetMapping("/companies-js")
+    public ResponseEntity<List<Company>> getCompaniesPageJs() {
+        return ResponseEntity.ok(companyService.getAll());
+    }
+
     @RequestMapping(value = "/companies_search", method = RequestMethod.GET)
     public String hello(Model model, @RequestParam(defaultValue = "") String searchName) {
         model.addAttribute("companies", companyService.getAll());

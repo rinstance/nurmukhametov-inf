@@ -39,6 +39,7 @@ public class OrderController {
     public String itemSave(@RequestParam("id") Long itemId, @AuthenticationPrincipal UserDetailsImpl userDetails,
                            Model model) {
         orderService.addOrder(userDetails.getUser().getId(), itemId);
+        itemService.changeCounts(itemId);
         List<Order> order = orderService.getByUserIdAndItemId(userDetails.getUser().getId(), itemId);
         model.addAttribute("savedOrders", order);
         return "order_saved";
