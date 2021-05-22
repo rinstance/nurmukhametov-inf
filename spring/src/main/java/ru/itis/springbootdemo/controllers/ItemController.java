@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import ru.itis.springbootdemo.dto.ItemDto;
 import ru.itis.springbootdemo.dto.ItemForm;
 import ru.itis.springbootdemo.dto.ItemPage;
+import ru.itis.springbootdemo.models.Item;
 import ru.itis.springbootdemo.services.ItemService;
+
+import java.util.List;
 
 @Controller
 public class ItemController {
@@ -28,6 +31,12 @@ public class ItemController {
     public String getAllItems(Model model) {
         model.addAttribute("itemsPage", itemService.getAll());
         return "all_items";
+    }
+
+    @CrossOrigin("http://localhost")
+    @GetMapping("/items-js")
+    public ResponseEntity<List<Item>> getAllItemsJs() {
+        return ResponseEntity.ok(itemService.getAll());
     }
 
     @GetMapping("/items/search")
