@@ -18,6 +18,17 @@
 </ul>
 
 <center>
+
+    <form action="/items" method="get">
+        <label>
+            <input name="size" required class="form-control" type="number" placeholder="Size">
+        </label>
+        <label>
+            <input name="pagesCount" required class="form-control" type="number" placeholder="Page">
+        </label>
+        <input type="submit" class="btn btn-lg btn-primary" value="OK">
+    </form>
+
     <u> <h1>Items for Sale</h1></u>
     <hr class="col-xs-12">
     <#list itemsPage as item>

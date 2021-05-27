@@ -23,7 +23,7 @@ public class CompanyController {
         return "companies";
     }
 
-    @CrossOrigin("http://localhost")
+    @CrossOrigin("http://localhost")    
     @GetMapping("/companies-js")
     public ResponseEntity<List<Company>> getCompaniesPageJs() {
         return ResponseEntity.ok(companyService.getAll());

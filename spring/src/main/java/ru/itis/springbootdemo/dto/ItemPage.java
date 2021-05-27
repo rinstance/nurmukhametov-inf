@@ -4,6 +4,7 @@ import java.util.List;
 
 public class ItemPage {
     private int pagesCount;
+    private int size;
     private List<ItemDto> items;
 
     public ItemPage() {
@@ -13,6 +14,14 @@ public class ItemPage {
     public ItemPage(int pagesCount, List<ItemDto> items) {
         this.pagesCount = pagesCount;
         this.items = items;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setPagesCount(int pagesCount) {

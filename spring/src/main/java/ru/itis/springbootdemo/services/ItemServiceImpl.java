@@ -13,8 +13,10 @@ import ru.itis.springbootdemo.models.Item;
 import ru.itis.springbootdemo.repositories.CompanyRepository;
 import ru.itis.springbootdemo.repositories.ItemRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static ru.itis.springbootdemo.dto.ItemDto.from;
 
@@ -74,6 +76,14 @@ public class ItemServiceImpl implements ItemService {
         }
     }
 
+    @Override
+    public List<Item> mapToItems(List<ItemDto> searchItems) {
+        List<Item> list = new ArrayList<>();
+        for (ItemDto searchItem : searchItems) {
+            list.add(itemRepository.getById(searchItem.getId()));
+        }
+        return list;
+    }
 
     @Override
     public ItemDto addItem(Integer companyId, ItemForm itemForm) {

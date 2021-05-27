@@ -1,4 +1,4 @@
-GET localhost:8080/items/search?page=1&size=3&sort=name
+GET localhost:8080/items/search?page=0&size=3&sort=name
 
 ###
 

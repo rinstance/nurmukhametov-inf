@@ -12,9 +12,6 @@ import ru.itis.springbootdemo.services.SignUpService;
 
 @Controller
 public class SignInController {
-    @Autowired
-    private SignUpService signUpService;
-
     @GetMapping("/signIn")
     public String getSignInPage() {
         return "sign_in_page";

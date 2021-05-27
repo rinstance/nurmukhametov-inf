@@ -27,10 +27,27 @@ public class ItemController {
 //        return ResponseEntity.ok(itemService.search(size, page, query, sort, direction));
 //    }
 
-    @GetMapping("/items")
-    public String getAllItems(Model model) {
+    private String getAllItems(Model model) {
         model.addAttribute("itemsPage", itemService.getAll());
         return "all_items";
+    }
+
+    @GetMapping("/items")
+    public String getAllItems(Model model, ItemPage itemPage) {
+        if (itemPage.getSize() > 0 && itemPage.getPagesCount() >= 0) {
+         return getSearchItems(model, itemPage.getSize(), itemPage.getPagesCount());
+        }
+        return getAllItems(model);
+    }
+
+    private String getSearchItems(Model model, int size, int page) {
+        List<ItemDto> searchItems = itemService.search(size, page, null, "name", null).getItems();
+        if (searchItems.isEmpty()) {
+            return getAllItems(model);
+        } else {
+            model.addAttribute("itemsPage", itemService.mapToItems(searchItems));
+            return "all_items";
+        }
     }
 
     @CrossOrigin("http://localhost")

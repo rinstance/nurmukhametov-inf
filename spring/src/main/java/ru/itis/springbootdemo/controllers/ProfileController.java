@@ -8,7 +8,7 @@ import ru.itis.springbootdemo.security.UserDetailsImpl;
 
 @Controller
 public class ProfileController {
-    @GetMapping("/profile")
+    @GetMapping("/profile")  
     public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         model.addAttribute("currUser", userDetails.getUser());
         return "profile_page";

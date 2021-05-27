@@ -14,4 +14,5 @@ public interface ItemService {
     List<Item> getAll();
     Item getById(Long itemId);
     void changeCounts(Long itemId);
+    List<Item> mapToItems(List<ItemDto> searchItems);
 }

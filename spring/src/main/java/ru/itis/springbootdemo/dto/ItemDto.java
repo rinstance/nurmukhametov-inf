@@ -20,12 +20,11 @@ public class ItemDto {
         return itemDto;
     }
 
-    public static List<ItemDto> from(List<Item> articlesOfUser) {
-        return articlesOfUser.stream()
+    public static List<ItemDto> from(List<Item> items) {
+        return items.stream()
                 .map(ItemDto::from)
                 .collect(Collectors.toList());
     }
-
 
     public void setId(Long id) {
         this.id = id;
